@@ -1,0 +1,31 @@
+# Secrets. Never commit.
+.env
+.env.*
+*.key
+
+# Python envs and caches.
+rd/.venv/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Stub/scaffold output artefacts.
+STUB_*.json
+
+# Local-only run artefacts. Published reference runs (e.g. the
+# 20260420T172959Z sweep backing RESULTS.md) are committed under
+# runs/published/ and are excluded from this pattern via a negation
+# below. Ad-hoc runs stay local.
+runs/*
+!runs/published/
+!runs/published/**
+
+# Build artefacts.
+/agape
+*.test
+
+# Editor / OS.
+.DS_Store
+.vscode/
+.idea/

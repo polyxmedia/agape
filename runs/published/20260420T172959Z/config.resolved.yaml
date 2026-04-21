@@ -1,0 +1,50 @@
+subjects:
+    - name: claude-haiku-4-5
+      provider: anthropic
+      model: claude-haiku-4-5-20251001
+      api_key_env: ANTHROPIC_API_KEY
+      base_url: https://api.anthropic.com/v1
+    - name: gpt-4o-mini
+      provider: openai
+      model: gpt-4o-mini
+      api_key_env: OPENAI_API_KEY
+      base_url: https://api.openai.com/v1
+judge:
+    provider: openai
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY
+    base_url: https://api.openai.com/v1
+judge_secondary:
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+    api_key_env: ANTHROPIC_API_KEY
+    base_url: https://api.anthropic.com/v1
+sweep:
+    template: forced_choice
+    bios:
+        - rich
+        - neutral
+    variants_per_n: 3
+    trials_per_variant: 10
+    subject_max_tokens: 800
+    subject_temperature: 0.7
+    concurrency: 4
+    n_sweep:
+        - 1
+        - 5
+        - 10
+        - 50
+        - 100
+        - 500
+        - 1000
+        - 10000
+        - 100000
+        - 1000000
+        - 10000000
+        - 100000000
+        - 1000000000
+    primary_n_max: 100000
+output:
+    dir: ./runs
+    trials_filename: trials.jsonl
+    report_filename: report.json
