@@ -20,6 +20,7 @@ STUB_*.json
 runs/*
 !runs/published/
 !runs/published/**
+rd/runs/
 
 # Build artefacts.
 /agape
